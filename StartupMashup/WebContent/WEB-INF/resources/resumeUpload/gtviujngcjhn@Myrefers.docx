@@ -1,0 +1,53 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@page import="java.util.List"%>
+<%@page import="com.startupmashup.bean.*"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Hackathon List</title>
+</head>
+<body>
+
+	<%-- 	<%
+		List listOfHackathons = (List) request
+				.getAttribute("listOfHackathons");
+	%>
+
+ --%>
+	<form action="/StartupMashup2/admin/edit-challenges">
+		<table>
+
+			<tr>
+				<th>
+				<th>Id
+				<th>Name
+				<th>Description
+				<th>Created By
+				<th>Created Date
+				<th>Updated By
+				<th>Updated Date
+			</tr>
+
+			<c:forEach items="${listOfChallenges}" var="challenge">
+				<tr>
+					<td><input type="radio" name="challengeId" value="${challenge.id}">
+					<td>${challenge.id}</td>
+					<td>${challenge.name}</td>
+					<td>${challenge.description}</td>
+					<td>${challenge.createdBy}</td>
+					<td>${challenge.createdDate}</td>
+					<td>${challenge.updatedBy}</td>
+					<td>${challenge.updatedDate}</td>
+				</tr>
+
+			</c:forEach>
+
+		</table>
+		<input type="submit" value="EDIT CHALLENGE">
+	</form>
+</body>
+</html>
